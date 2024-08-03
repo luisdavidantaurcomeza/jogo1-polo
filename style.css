@@ -101,12 +101,12 @@ body {
     top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 1200px;
+    width: 1000px;
     height: 250px;
     background-color: rgba(255, 255, 255, 0.3); /* Transparente */
     border: none;
     border-radius: 15px; /* Bordas arredondadas */
-    font-size: 150px;
+    font-size: 50px;
     font-family: Arial, sans-serif;
     cursor: pointer;
     z-index: 1002; /* Ajuste conforme necessário */
