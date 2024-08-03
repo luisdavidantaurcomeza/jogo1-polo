@@ -1,0 +1,219 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+.gameboard {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    margin: 10px auto;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.gameboard2 {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    margin: 10px auto;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.fundo {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.sobreposta {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 1800%; 
+    animation: sobreposta-animation 130s linear infinite;
+    z-index: 1;
+    animation-delay: 0s;
+}
+
+.calçada {
+    position: absolute;
+    top: 365px;
+    left: 0;
+    height: 50%;
+    width: 1800%; 
+    animation: calçada-animation 30s linear infinite;
+    z-index: 2;
+    animation-delay: 0s;
+}
+
+.nuvens {
+    position: absolute;
+    top: 100px;
+    width: 800px;
+    animation: nuvens-animation 20s linear infinite;
+    z-index: 2;
+}
+
+.vilão, .corredor {
+    position: absolute;
+    z-index: 3;
+}
+
+.vilão {
+    bottom: 20px;
+    width: 150px;
+    animation: vilao-animation 1.5s infinite linear;
+}
+
+.corredor {
+    width: 200px;
+    bottom: 20px;
+    z-index: 1010;
+}
+
+.pulo {
+    animation: pulo 500ms ease-out;
+}
+
+#score {
+    position: absolute;
+    top: 20px; 
+    right: 20px; 
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    font-family: Arial, sans-serif;
+    z-index: 999;
+}
+
+.mobile-button {
+    position: fixed;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1200px;
+    height: 250px;
+    background-color: rgba(255, 255, 255, 0.3); /* Transparente */
+    border: none;
+    border-radius: 15px; /* Bordas arredondadas */
+    font-size: 150px;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    z-index: 1002; /* Ajuste conforme necessário */
+    color: #ffffff; /* Cor do texto */
+}
+
+#game-over-text {
+    display: none;
+    position: absolute;
+    top: 56%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    z-index: 1001;
+    opacity: 0;
+    animation: fadeInScale 1s forwards;
+}
+
+.fade-in {
+    animation: fadeIn 2s forwards;
+}
+
+#fundopreto {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0;
+    z-index: 1000; 
+    pointer-events: none; 
+}
+
+@keyframes sobreposta-animation {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes calçada-animation {
+    from {
+        transform: translateX(0px);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes nuvens-animation {
+    from {
+        right: -1000px;
+    }
+    to {
+        right: 100%;
+    }
+}
+
+@keyframes vilao-animation {
+    from {
+        right: 0;
+    }
+    to {
+        right: 100%;
+    }
+}
+
+@keyframes pulo {
+    0% {
+        bottom: 0;
+    }
+    40% {
+        bottom: 180px;
+    }
+    50% {
+        bottom: 180px;
+    }
+    70% {
+        bottom: 180px;
+    }
+    100% {
+        bottom: 0;
+    }
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>JOGO UNIDADE POLO</title>
+</head>
+<body>
+    <div class="gameboard">
+        <img src="./img/corredor.gif" class="corredor">
+        <div class="gameboard2">
+            <img src="./img/vilão.gif" class="vilão">
+            <img src="./img/fundo.png" class="fundo">
+            <img src="./img/sobreposta.png" class="sobreposta">
+            <img src="./img/calçada.png" class="calçada">
+            <img src="./img/nuvens.png" class="nuvens">
+        </div>
+        <audio id="musicadefundo" src="./audio/trilhasonora.mp3" loop></audio>
+        <div id="score">Pontuação: 0</div>
+        <div id="game-over-text"></div>
+        <div id="fundopreto"></div>
+        <button id="jumpButton" class="mobile-button">Pular</button>
+        <button id="restartButton" class="mobile-button" style="display: none;">Reiniciar</button>
+    </div>
+    <script src="./main.js" defer></script>
+</body>
+</html>
