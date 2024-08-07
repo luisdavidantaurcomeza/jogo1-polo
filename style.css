@@ -8,20 +8,12 @@ body {
     background-color: black;
 }
 
-.gameboard {
+.gameboard, .gameboard2 {
     position: relative;
-    width: 1280px;
-    height: 720px;
-    border-bottom: 1px solid rgb(0, 0, 0);
-    margin: 10px auto;
-    overflow: hidden;
-    z-index: 2;
-}
-
-.gameboard2 {
-    position: relative;
-    width: 1280px;
-    height: 720px;
+    width: 100%;
+    max-width: 1280px;
+    height: 100vh;
+    max-height: 720px;
     border-bottom: 1px solid rgb(0, 0, 0);
     margin: 10px auto;
     overflow: hidden;
@@ -32,7 +24,7 @@ body {
     position: relative;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    object-fit: cover;
 }
 
 .sobreposta {
@@ -40,7 +32,7 @@ body {
     top: 0;
     left: 0;
     height: 100%;
-    width: 1800%; 
+    width: 1800%;
     animation: sobreposta-animation 130s linear infinite;
     z-index: 1;
     animation-delay: 0s;
@@ -48,10 +40,10 @@ body {
 
 .calçada {
     position: absolute;
-    top: 365px;
+    bottom: 0;
     left: 0;
     height: 50%;
-    width: 1800%; 
+    width: 1800%;
     animation: calçada-animation 30s linear infinite;
     z-index: 2;
     animation-delay: 0s;
@@ -59,8 +51,9 @@ body {
 
 .nuvens {
     position: absolute;
-    top: 100px;
-    width: 800px;
+    top: 10%;
+    width: 100%;
+    max-width: 800px;
     animation: nuvens-animation 20s linear infinite;
     z-index: 2;
 }
@@ -71,14 +64,16 @@ body {
 }
 
 .vilão {
-    bottom: 20px;
-    width: 150px;
+    bottom: 5%;
+    width: 15%;
+    max-width: 150px;
     animation: vilao-animation 1.5s infinite linear;
 }
 
 .corredor {
-    width: 200px;
-    bottom: 20px;
+    width: 20%;
+    max-width: 200px;
+    bottom: 5%;
     z-index: 1010;
 }
 
@@ -88,39 +83,41 @@ body {
 
 #score {
     position: absolute;
-    top: 20px; 
-    right: 20px; 
+    top: 20px;
+    right: 20px;
     color: rgb(255, 255, 255);
-    font-size: 30px;
+    font-size: 4vw;
     font-family: Arial, sans-serif;
     z-index: 999;
 }
 
 .mobile-button {
     position: fixed;
-    top: 80%;
+    bottom: 5%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 1000px;
-    height: 250px;
-    background-color: rgba(255, 255, 255, 0.3); /* Transparente */
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 1000px;
+    height: 20vh;
+    max-height: 250px;
+    background-color: rgba(255, 255, 255, 0.3);
     border: none;
-    border-radius: 15px; /* Bordas arredondadas */
-    font-size: 50px;
+    border-radius: 15px;
+    font-size: 5vw;
     font-family: Arial, sans-serif;
     cursor: pointer;
-    z-index: 1002; /* Ajuste conforme necessário */
-    color: #ffffff; /* Cor do texto */
+    z-index: 1002;
+    color: #ffffff;
 }
 
 #game-over-text {
     display: none;
     position: absolute;
-    top: 56%;
-    left: 40%;
+    top: 60%;
+    left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 15px;
+    font-size: 4vw;
     font-family: Arial, sans-serif;
     text-align: center;
     z-index: 1001;
@@ -140,80 +137,83 @@ body {
     height: 100%;
     background: black;
     opacity: 0;
-    z-index: 1000; 
-    pointer-events: none; 
+    z-index: 1000;
+    pointer-events: none;
 }
 
 @keyframes sobreposta-animation {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-100%);
-    }
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
 }
 
 @keyframes calçada-animation {
-    from {
-        transform: translateX(0px);
-    }
-    to {
-        transform: translateX(-100%);
-    }
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
 }
 
 @keyframes nuvens-animation {
-    from {
-        right: -1000px;
-    }
-    to {
-        right: 100%;
-    }
+    from { right: -100%; }
+    to { right: 100%; }
 }
 
 @keyframes vilao-animation {
-    from {
-        right: 0;
-    }
-    to {
-        right: 100%;
-    }
+    from { right: 0; }
+    to { right: 100%; }
 }
 
 @keyframes pulo {
-    0% {
-        bottom: 0;
-    }
-    40% {
-        bottom: 180px;
-    }
-    50% {
-        bottom: 180px;
-    }
-    70% {
-        bottom: 180px;
-    }
-    100% {
-        bottom: 0;
-    }
+    0% { bottom: 5%; }
+    40% { bottom: 30%; }
+    50% { bottom: 30%; }
+    70% { bottom: 30%; }
+    100% { bottom: 5%; }
 }
 
 @keyframes fadeInScale {
-    0% {
-        opacity: 0;
-        transform: scale(0.5);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Media Queries for Responsive Design */
+
+@media (max-width: 768px) {
+    .gameboard, .gameboard2 {
+        max-height: 480px;
     }
-    to {
-        opacity: 1;
+
+    #score {
+        font-size: 5vw;
+    }
+
+    .mobile-button {
+        font-size: 6vw;
+    }
+
+    #game-over-text {
+        font-size: 4vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .gameboard, .gameboard2 {
+        max-height: 320px;
+    }
+
+    #score {
+        font-size: 6vw;
+    }
+
+    .mobile-button {
+        font-size: 10vw;
+        height: 18vh;
+    }
+
+    #game-over-text {
+        font-size: 4vw;
     }
 }
